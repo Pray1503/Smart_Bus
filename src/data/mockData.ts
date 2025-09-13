@@ -1,216 +1,1436 @@
-import { Bus, RouteStop, Alert, ScheduleEntry, ChartData, Route, Notification } from '../types';
+// import {
+//   Bus,
+//   RouteStop,
+//   Alert,
+//   ScheduleEntry,
+//   ChartData,
+//   Route,
+//   Notification,
+// } from "../types";
 
-export const initialBuses: Bus[] = [
+// export const initialBuses: Bus[] = [
+//   {
+//     id: "B-001",
+//     x: 100,
+//     y: 150,
+//     targetX: 300,
+//     targetY: 150,
+//     occupancy: 25,
+//     maxCapacity: 40,
+//     status: "normal",
+//     route: "Route 5",
+//     nextStop: "Central Station",
+//     speed: 2,
+//   },
+//   {
+//     id: "B-002",
+//     x: 450,
+//     y: 200,
+//     targetX: 200,
+//     targetY: 300,
+//     occupancy: 42,
+//     maxCapacity: 40,
+//     status: "overcrowded",
+//     route: "Route 12",
+//     nextStop: "Mall Plaza",
+//     speed: 1.5,
+//   },
+//   {
+//     id: "B-003",
+//     x: 350,
+//     y: 350,
+//     targetX: 500,
+//     targetY: 100,
+//     occupancy: 15,
+//     maxCapacity: 40,
+//     status: "delayed",
+//     route: "Route 8",
+//     nextStop: "University",
+//     speed: 1,
+//   },
+//   {
+//     id: "B-004",
+//     x: 200,
+//     y: 300,
+//     targetX: 400,
+//     targetY: 250,
+//     occupancy: 32,
+//     maxCapacity: 40,
+//     status: "normal",
+//     route: "Route 3",
+//     nextStop: "Hospital",
+//     speed: 2.2,
+//   },
+// ];
+
+// export const routeStops: RouteStop[] = [
+//   {
+//     id: "stop1",
+//     name: "Central Station",
+//     x: 300,
+//     y: 150,
+//     routes: ["Route 5", "Route 3"],
+//   },
+//   {
+//     id: "stop2",
+//     name: "Mall Plaza",
+//     x: 200,
+//     y: 300,
+//     routes: ["Route 12", "Route 8"],
+//   },
+//   {
+//     id: "stop3",
+//     name: "University",
+//     x: 500,
+//     y: 100,
+//     routes: ["Route 8", "Route 5"],
+//   },
+//   {
+//     id: "stop4",
+//     name: "Hospital",
+//     x: 400,
+//     y: 250,
+//     routes: ["Route 3", "Route 12"],
+//   },
+//   { id: "stop5", name: "Airport", x: 100, y: 350, routes: ["Route 5"] },
+//   {
+//     id: "stop6",
+//     name: "Stadium",
+//     x: 450,
+//     y: 200,
+//     routes: ["Route 12", "Route 3"],
+//   },
+// ];
+
+// export const initialAlerts: Alert[] = [
+//   {
+//     id: "1",
+//     type: "warning",
+//     message: "Route 5 Delayed – Rescheduling Now...",
+//     timestamp: Date.now(),
+//     route: "Route 5",
+//   },
+// ];
+
+// export const scheduleData: ScheduleEntry[] = [
+//   {
+//     route: "Route 5",
+//     stop: "Central Station",
+//     originalTime: "08:15",
+//     optimizedTime: "08:12",
+//     improvement: -3,
+//   },
+//   {
+//     route: "Route 5",
+//     stop: "University",
+//     originalTime: "08:25",
+//     optimizedTime: "08:20",
+//     improvement: -5,
+//   },
+//   {
+//     route: "Route 12",
+//     stop: "Mall Plaza",
+//     originalTime: "08:30",
+//     optimizedTime: "08:25",
+//     improvement: -5,
+//   },
+//   {
+//     route: "Route 12",
+//     stop: "Stadium",
+//     originalTime: "08:45",
+//     optimizedTime: "08:38",
+//     improvement: -7,
+//   },
+//   {
+//     route: "Route 8",
+//     stop: "University",
+//     originalTime: "08:20",
+//     optimizedTime: "08:22",
+//     improvement: 2,
+//   },
+//   {
+//     route: "Route 3",
+//     stop: "Hospital",
+//     originalTime: "08:35",
+//     optimizedTime: "08:30",
+//     improvement: -5,
+//   },
+// ];
+
+// export const initialChartData: ChartData[] = [
+//   {
+//     time: "08:00",
+//     waitTime: 12,
+//     optimizedWaitTime: 8,
+//     usage: 65,
+//     optimizedUsage: 85,
+//     predicted: 120,
+//     actual: 115,
+//   },
+//   {
+//     time: "08:15",
+//     waitTime: 15,
+//     optimizedWaitTime: 9,
+//     usage: 70,
+//     optimizedUsage: 88,
+//     predicted: 135,
+//     actual: 140,
+//   },
+//   {
+//     time: "08:30",
+//     waitTime: 18,
+//     optimizedWaitTime: 10,
+//     usage: 75,
+//     optimizedUsage: 92,
+//     predicted: 150,
+//     actual: 145,
+//   },
+//   {
+//     time: "08:45",
+//     waitTime: 14,
+//     optimizedWaitTime: 7,
+//     usage: 68,
+//     optimizedUsage: 90,
+//     predicted: 140,
+//     actual: 138,
+//   },
+//   {
+//     time: "09:00",
+//     waitTime: 11,
+//     optimizedWaitTime: 6,
+//     usage: 72,
+//     optimizedUsage: 95,
+//     predicted: 160,
+//     actual: 155,
+//   },
+// ];
+
+// export const routes: Route[] = [
+//   {
+//     id: "downtown-express",
+//     name: "Downtown Express",
+//     buses: 6,
+//     stops: 12,
+//     avgWait: "8.5m",
+//     onTime: "92%",
+//     status: "optimal",
+//     efficiency: 92,
+//     passengers: 32,
+//     originalSchedule: {
+//       startTime: "08:00",
+//       endTime: "08:45",
+//       duration: "45m",
+//       efficiency: 78,
+//     },
+//     optimizedSchedule: {
+//       startTime: "08:00",
+//       endTime: "08:38",
+//       duration: "38m",
+//       efficiency: 92,
+//     },
+//     timeSaved: "-7m",
+//     efficiencyGain: "+14%",
+//   },
+//   {
+//     id: "university-loop",
+//     name: "University Loop",
+//     buses: 4,
+//     stops: 18,
+//     avgWait: "12.3m",
+//     onTime: "87%",
+//     status: "delayed",
+//     efficiency: 87,
+//     passengers: 28,
+//     originalSchedule: {
+//       startTime: "08:15",
+//       endTime: "09:00",
+//       duration: "45m",
+//       efficiency: 75,
+//     },
+//     optimizedSchedule: {
+//       startTime: "08:15",
+//       endTime: "08:52",
+//       duration: "37m",
+//       efficiency: 87,
+//     },
+//     timeSaved: "-8m",
+//     efficiencyGain: "+12%",
+//   },
+//   {
+//     id: "airport-shuttle",
+//     name: "Airport Shuttle",
+//     buses: 3,
+//     stops: 8,
+//     avgWait: "15.2m",
+//     onTime: "95%",
+//     status: "active",
+//     efficiency: 95,
+//     passengers: 24,
+//     originalSchedule: {
+//       startTime: "08:30",
+//       endTime: "09:15",
+//       duration: "45m",
+//       efficiency: 82,
+//     },
+//     optimizedSchedule: {
+//       startTime: "08:30",
+//       endTime: "09:05",
+//       duration: "35m",
+//       efficiency: 95,
+//     },
+//     timeSaved: "-10m",
+//     efficiencyGain: "+13%",
+//   },
+//   {
+//     id: "residential-circuit",
+//     name: "Residential Circuit",
+//     buses: 8,
+//     stops: 24,
+//     avgWait: "9.8m",
+//     onTime: "89%",
+//     status: "active",
+//     efficiency: 89,
+//     passengers: 45,
+//     originalSchedule: {
+//       startTime: "08:45",
+//       endTime: "09:30",
+//       duration: "45m",
+//       efficiency: 76,
+//     },
+//     optimizedSchedule: {
+//       startTime: "08:45",
+//       endTime: "09:20",
+//       duration: "35m",
+//       efficiency: 89,
+//     },
+//     timeSaved: "-10m",
+//     efficiencyGain: "+13%",
+//   },
+// ];
+
+// export const notifications: Notification[] = [
+//   {
+//     id: "1",
+//     type: "success",
+//     message: "Route optimization completed successfully",
+//     timestamp: Date.now() - 30000,
+//   },
+//   {
+//     id: "2",
+//     type: "success",
+//     message: "Route optimization completed successfully",
+//     timestamp: Date.now() - 60000,
+//   },
+//   {
+//     id: "3",
+//     type: "info",
+//     message: "Route optimization completed successfully",
+//     timestamp: Date.now() - 90000,
+//   },
+// ];
+
+import {
+  Bus,
+  RouteStop,
+  Alert,
+  ScheduleEntry,
+  ChartData,
+  Route,
+  Notification,
+} from "../types";
+
+// AMTS bus routes data from AMTS_Bus_Routes_Fare.xlsx
+const amtsRoutes = [
   {
-    id: 'B-001',
-    x: 100,
-    y: 150,
-    targetX: 300,
-    targetY: 150,
-    occupancy: 25,
-    maxCapacity: 40,
-    status: 'normal',
-    route: 'Route 5',
-    nextStop: 'Central Station',
-    speed: 2
+    "Route No.": "1",
+    Source: "Ratan Park",
+    Destination: "Lal Darwaja",
+    "Distance Covered": 9.5,
+    "1st Shift Trip": 13,
+    "2nd Shift Trip": 14,
+    Fare: "Rs 20",
   },
   {
-    id: 'B-002',
-    x: 450,
-    y: 200,
-    targetX: 200,
-    targetY: 300,
-    occupancy: 42,
-    maxCapacity: 40,
-    status: 'overcrowded',
-    route: 'Route 12',
-    nextStop: 'Mall Plaza',
-    speed: 1.5
+    "Route No.": "4",
+    Source: "Lal Darwaja",
+    Destination: "Lal Darwaja",
+    "Distance Covered": 22.8,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
   },
   {
-    id: 'B-003',
-    x: 350,
-    y: 350,
-    targetX: 500,
-    targetY: 100,
-    occupancy: 15,
-    maxCapacity: 40,
-    status: 'delayed',
-    route: 'Route 8',
-    nextStop: 'University',
-    speed: 1
+    "Route No.": "5",
+    Source: "Lal Darwaja",
+    Destination: "Lal Darwaja",
+    "Distance Covered": 22.8,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 30",
   },
   {
-    id: 'B-004',
-    x: 200,
-    y: 300,
-    targetX: 400,
-    targetY: 250,
-    occupancy: 32,
-    maxCapacity: 40,
-    status: 'normal',
-    route: 'Route 3',
-    nextStop: 'Hospital',
-    speed: 2.2
-  }
+    "Route No.": "14",
+    Source: "Lal Darwaja",
+    Destination: "Chosar Gam",
+    "Distance Covered": 18.7,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "15",
+    Source: "Vivekanand Nagar",
+    Destination: "Civil Hospital",
+    "Distance Covered": 22.15,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "16",
+    Source: "Nigam Society",
+    Destination: "Chiloda Octroi Naka",
+    "Distance Covered": 27.8,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "17",
+    Source: "Nigam Society",
+    Destination: "Meghani Nagar",
+    "Distance Covered": 16.45,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "18",
+    Source: "Kalupur",
+    Destination: "Punit Nagar",
+    "Distance Covered": 8.9,
+    "1st Shift Trip": 14,
+    "2nd Shift Trip": 14,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "22",
+    Source: "Tragad Gam",
+    Destination: "Lambha Gam",
+    "Distance Covered": 32.05,
+    "1st Shift Trip": 5,
+    "2nd Shift Trip": 5,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "23",
+    Source: "Isanpur",
+    Destination: "Jivandeep Circular",
+    "Distance Covered": 22.9,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "28",
+    Source: "Meghani Nagar",
+    Destination: "Lambha Gam",
+    "Distance Covered": 19.85,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "31",
+    Source: "Sarkhej Gam",
+    Destination: "Meghaninagar",
+    "Distance Covered": 19.85,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "32",
+    Source: "Butbhavani Mand",
+    Destination: "Shahiyadri Bung",
+    "Distance Covered": 18.6,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "33",
+    Source: "Narayan Nagar",
+    Destination: "Manmohan Park",
+    "Distance Covered": 19.65,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "34",
+    Source: "Butbhavani Mand",
+    Destination: "Kalapi Nagar",
+    "Distance Covered": 17.55,
+    "1st Shift Trip": 10,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "35",
+    Source: "Lal Darwaja",
+    Destination: "Matoda Patia",
+    "Distance Covered": 25.95,
+    "1st Shift Trip": 5,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "36",
+    Source: "Sarangpur",
+    Destination: "Sarkhej Gam",
+    "Distance Covered": 14,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "37",
+    Source: "Vasna",
+    Destination: "Tejendra Nagar",
+    "Distance Covered": 17.1,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "38",
+    Source: "Juhapura",
+    Destination: "Meghani Nagar",
+    "Distance Covered": 16.65,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "40",
+    Source: "Vasna",
+    Destination: "Lapkaman",
+    "Distance Covered": 21.95,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "42",
+    Source: "Ghodasar",
+    Destination: "Judges Bunglows",
+    "Distance Covered": 17.65,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "43",
+    Source: "Lal Darwaja",
+    Destination: "Judges Bunglow",
+    "Distance Covered": 9.4,
+    "1st Shift Trip": 14,
+    "2nd Shift Trip": 12,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "45",
+    Source: "Lal Darwaja",
+    Destination: "Jodhpur Gam",
+    "Distance Covered": 8.4,
+    "1st Shift Trip": 15,
+    "2nd Shift Trip": 14,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "46",
+    Source: "Kalupur",
+    Destination: "Kalupur",
+    "Distance Covered": 18.2,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "47",
+    Source: "Kalupur",
+    Destination: "Kalupur",
+    "Distance Covered": 18.2,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "48",
+    Source: "Kalupur",
+    Destination: "Prhalad Nagar",
+    "Distance Covered": 14.25,
+    "1st Shift Trip": 10,
+    "2nd Shift Trip": 10,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "49",
+    Source: "Adinath Nagar",
+    Destination: "Manipur Vad",
+    "Distance Covered": 29.15,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "50",
+    Source: "Ghuma Gam",
+    Destination: "Meghani Nagar",
+    "Distance Covered": 25.7,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "52",
+    Source: "Punit Nagar",
+    Destination: "Thaltej",
+    "Distance Covered": 21.6,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "54",
+    Source: "Vatva Rly Cross",
+    Destination: "Vaishnodevi Man",
+    "Distance Covered": 34.4,
+    "1st Shift Trip": 5,
+    "2nd Shift Trip": 5,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "56",
+    Source: "Sitaram Bapa Chowk",
+    Destination: "Judges Bunglows",
+    "Distance Covered": 24.95,
+    "1st Shift Trip": 5,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "58",
+    Source: "Thaltej Gam",
+    Destination: "Kush Society",
+    "Distance Covered": 30.15,
+    "1st Shift Trip": 5,
+    "2nd Shift Trip": 5,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "60",
+    Source: "Maninagar",
+    Destination: "Judges Bunglows",
+    "Distance Covered": 18.65,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "61",
+    Source: "Maninagar",
+    Destination: "Gujarat High Court",
+    "Distance Covered": 19.6,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "63",
+    Source: "Maninagar",
+    Destination: "Gujarat High Court",
+    "Distance Covered": 19.45,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "64",
+    Source: "Lal Darwaja",
+    Destination: "Gujarat High Court",
+    "Distance Covered": 11.35,
+    "1st Shift Trip": 10,
+    "2nd Shift Trip": 10,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "65",
+    Source: "Lal Darwaja",
+    Destination: "Sola Bhagwat Vidhyapith",
+    "Distance Covered": 13.55,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "65",
+    Source: "Lal Darwaja",
+    Destination: "Sola Bhagwat",
+    "Distance Covered": 13.55,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "66",
+    Source: "Kalupur Terminu",
+    Destination: "Shilaj Gam",
+    "Distance Covered": 16.5,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "67",
+    Source: "Kalupur",
+    Destination: "Satadhar Society",
+    "Distance Covered": 11.1,
+    "1st Shift Trip": 10,
+    "2nd Shift Trip": 10,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "68",
+    Source: "Kalupur",
+    Destination: "Sattadhar Society",
+    "Distance Covered": 17.2,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "69",
+    Source: "Kalupur",
+    Destination: "Chanakyapuri",
+    "Distance Covered": 10.35,
+    "1st Shift Trip": 10,
+    "2nd Shift Trip": 10,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "70",
+    Source: "Vagheshwari Soc",
+    Destination: "Naroda Terminus",
+    "Distance Covered": 20.05,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "72",
+    Source: "Maninagar",
+    Destination: "Nava Vadaj",
+    "Distance Covered": 18.2,
+    "1st Shift Trip": 10,
+    "2nd Shift Trip": 10,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "74",
+    Source: "Nava Ranip",
+    Destination: "Nigam Society",
+    "Distance Covered": 21.55,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "75",
+    Source: "Maninagar",
+    Destination: "Chandkheda",
+    "Distance Covered": 21.2,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "76",
+    Source: "Vatva Ind.Towns",
+    Destination: "Gujarat High Court",
+    "Distance Covered": 25.7,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "77",
+    Source: "Vadaj Terminus",
+    Destination: "Hatkeshwar",
+    "Distance Covered": 12.35,
+    "1st Shift Trip": 9,
+    "2nd Shift Trip": 9,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "79",
+    Source: "Thakkarbapa Nagar",
+    Destination: "Chenpur Gam",
+    "Distance Covered": 19,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "82",
+    Source: "Lal Darwaja",
+    Destination: "Nirnay Nagar",
+    "Distance Covered": 10.45,
+    "1st Shift Trip": 11,
+    "2nd Shift Trip": 11,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "83",
+    Source: "Lal Darwaja",
+    Destination: "Sabarmati D Cab",
+    "Distance Covered": 14.1,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "84",
+    Source: "Mani Nagar",
+    Destination: "Chandkheda Gam",
+    "Distance Covered": 23.6,
+    "1st Shift Trip": 5,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "85",
+    Source: "Lal Darwaja",
+    Destination: "Chandkheda Gam",
+    "Distance Covered": 12.85,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "87",
+    Source: "Maninagar",
+    Destination: "Chandkheda Gam",
+    "Distance Covered": 24.95,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "88",
+    Source: "Ranip",
+    Destination: "Nikol Gam",
+    "Distance Covered": 16.45,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "90",
+    Source: "Tragad Gam",
+    Destination: "Meghaninagar",
+    "Distance Covered": 21.15,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "96",
+    Source: "Vatva Rly Cross",
+    Destination: "Circuit House",
+    "Distance Covered": 22.65,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "101",
+    Source: "Lal Darwaja",
+    Destination: "Sardar Nagar",
+    "Distance Covered": 9.45,
+    "1st Shift Trip": 14,
+    "2nd Shift Trip": 14,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "102",
+    Source: "Lal Darwaja",
+    Destination: "New Airport",
+    "Distance Covered": 10.8,
+    "1st Shift Trip": 12,
+    "2nd Shift Trip": 12,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "105",
+    Source: "Lal Darwaja",
+    Destination: "Naroda Ind East",
+    "Distance Covered": 16.35,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "112",
+    Source: "Lal Darwaja",
+    Destination: "Kubernagar",
+    "Distance Covered": 11.05,
+    "1st Shift Trip": 10,
+    "2nd Shift Trip": 10,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "116",
+    Source: "Civil Hospital",
+    Destination: "Danilimda Gam",
+    "Distance Covered": 9.5,
+    "1st Shift Trip": 10,
+    "2nd Shift Trip": 10,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "117",
+    Source: "Suedge Farm App",
+    Destination: "Kalapi Nagar",
+    "Distance Covered": 12.85,
+    "1st Shift Trip": 10,
+    "2nd Shift Trip": 10,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "122",
+    Source: "Lal Darwaja",
+    Destination: "Ambawadi Police",
+    "Distance Covered": 15.25,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "123 SH",
+    Source: "Lal Darwaja",
+    Destination: "Krushna Nagar",
+    "Distance Covered": 10.35,
+    "1st Shift Trip": 10,
+    "2nd Shift Trip": 10,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "125",
+    Source: "Lal Darwaja",
+    Destination: "Vahelal Gam",
+    "Distance Covered": 27.45,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "126",
+    Source: "Sarangpur",
+    Destination: "Sardarnagar",
+    "Distance Covered": 14.4,
+    "1st Shift Trip": 9,
+    "2nd Shift Trip": 9,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "127",
+    Source: "Sarangpur",
+    Destination: "Sukan Bunglow",
+    "Distance Covered": 12.4,
+    "1st Shift Trip": 10,
+    "2nd Shift Trip": 10,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "128",
+    Source: "Mani Nagar",
+    Destination: "Naroda Ind Town",
+    "Distance Covered": 17.25,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "129",
+    Source: "Haridarshan",
+    Destination: "Vasna",
+    "Distance Covered": 23.35,
+    "1st Shift Trip": 7,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "130",
+    Source: "Naroda Terminus",
+    Destination: "Indira Nagar 2",
+    "Distance Covered": 24.35,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "134",
+    Source: "Lal Darwaja",
+    Destination: "Thakkarbapanagar",
+    "Distance Covered": 10.75,
+    "1st Shift Trip": 10,
+    "2nd Shift Trip": 10,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "135",
+    Source: "Lal Darwaja",
+    Destination: "New India Colony",
+    "Distance Covered": 14.55,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "136",
+    Source: "New India Colon",
+    Destination: "Sattadhar Society",
+    "Distance Covered": 27,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "138",
+    Source: "Bapunagar",
+    Destination: "Ghuma Gam",
+    "Distance Covered": 23.7,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 5,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "141",
+    Source: "Lal Darwaja",
+    Destination: "Rakhial Char Rasta",
+    "Distance Covered": 7.95,
+    "1st Shift Trip": 14,
+    "2nd Shift Trip": 14,
+    Fare: "Rs 15",
+  },
+  {
+    "Route No.": "142",
+    Source: "Vastral Gam",
+    Destination: "Gujarat University",
+    "Distance Covered": 19.05,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "143",
+    Source: "Lal Darwaja",
+    Destination: "Bhuvaldi Gam",
+    "Distance Covered": 16.25,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "144",
+    Source: "Arbuda Nagar",
+    Destination: "Gujarat University",
+    "Distance Covered": 15.95,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "145",
+    Source: "Arbudanagar",
+    Destination: "Civil Hospital",
+    "Distance Covered": 10.2,
+    "1st Shift Trip": 13,
+    "2nd Shift Trip": 12,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "147",
+    Source: "Surbhi Society",
+    Destination: "Vagheshwari Society",
+    "Distance Covered": 18.85,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "148",
+    Source: "Sarangpur",
+    Destination: "Kathwada Gam",
+    "Distance Covered": 13.85,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 20",
+  },
+  {
+    "Route No.": "150",
+    Source: "Sarkhej Gam",
+    Destination: "Chinubhai Nagar",
+    "Distance Covered": 24.05,
+    "1st Shift Trip": 5,
+    "2nd Shift Trip": 5,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "152",
+    Source: "Lal Darwaja",
+    Destination: "Vanch",
+    "Distance Covered": 17.4,
+    "1st Shift Trip": 8,
+    "2nd Shift Trip": 8,
+    Fare: "Rs 25",
+  },
+  {
+    "Route No.": "153",
+    Source: "Lal Darwaja",
+    Destination: "Shyamaprasad Vasavad Community Hall",
+    "Distance Covered": 7.9,
+    "1st Shift Trip": 14,
+    "2nd Shift Trip": 14,
+    Fare: "Rs 15",
+  },
+  {
+    "Route No.": "160",
+    Source: "Hatkeshwer",
+    Destination: "Gujarat High Court",
+    "Distance Covered": 26.75,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "200",
+    Source: "Maninagar",
+    Destination: "Maninagar",
+    "Distance Covered": 42.85,
+    "1st Shift Trip": 3,
+    "2nd Shift Trip": 3,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "201",
+    Source: "Naroda Terminus",
+    Destination: "Vasna Terminus",
+    "Distance Covered": 26.3,
+    "1st Shift Trip": 5,
+    "2nd Shift Trip": 5,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "202",
+    Source: "Vasna",
+    Destination: "Naroda Terminus",
+    "Distance Covered": 32.6,
+    "1st Shift Trip": 4,
+    "2nd Shift Trip": 4,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "203",
+    Source: "Paldi",
+    Destination: "Vaishno Devi",
+    "Distance Covered": 28.35,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 7,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "300",
+    Source: "Maninagar",
+    Destination: "Maninagar",
+    "Distance Covered": 42.85,
+    "1st Shift Trip": 3,
+    "2nd Shift Trip": 3,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "301",
+    Source: "Naroda Terminus",
+    Destination: "Naroda Terminus",
+    "Distance Covered": 61.65,
+    "1st Shift Trip": 3,
+    "2nd Shift Trip": 3,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "400",
+    Source: "Lal Darwaja",
+    Destination: "Lal Darwaja",
+    "Distance Covered": 20.05,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "401",
+    Source: "Vasna",
+    Destination: "Chandkheda",
+    "Distance Covered": 52.75,
+    "1st Shift Trip": 3,
+    "2nd Shift Trip": 3,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "500",
+    Source: "Lal Darwaja",
+    Destination: "Lal Darwaja",
+    "Distance Covered": 20.05,
+    "1st Shift Trip": 6,
+    "2nd Shift Trip": 6,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "501",
+    Source: "Vasna",
+    Destination: "Chandkheda",
+    "Distance Covered": 52.75,
+    "1st Shift Trip": 3,
+    "2nd Shift Trip": 2,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "800",
+    Source: "Nava Vadaj",
+    Destination: "Nava Vadaj",
+    "Distance Covered": 38.3,
+    "1st Shift Trip": 4,
+    "2nd Shift Trip": 4,
+    Fare: "Rs 30",
+  },
+  {
+    "Route No.": "900",
+    Source: "Nava Vadaj",
+    Destination: "Nava Vadaj",
+    "Distance Covered": 38.3,
+    "1st Shift Trip": 4,
+    "2nd Shift Trip": 4,
+    Fare: "Rs 30",
+  },
 ];
 
+// Generate routes
+export const routes: Route[] = amtsRoutes.map((route, index) => {
+  const distance = route["Distance Covered"];
+  const trips = (route["1st Shift Trip"] + route["2nd Shift Trip"]) / 2;
+  const buses = Math.min(8, Math.max(3, Math.floor(distance / 5))); // 3–8 buses based on distance
+  const stops = Math.min(24, Math.max(8, Math.floor(distance / 2))); // 8–24 stops based on distance
+  const avgWait = Math.max(8, Math.min(15, 20 - trips)).toFixed(1) + "m"; // Wait time based on trips
+  const onTime =
+    Math.min(
+      95,
+      Math.max(
+        85,
+        100 -
+          Math.floor(distance / 10) -
+          Math.abs(route["1st Shift Trip"] - route["2nd Shift Trip"])
+      )
+    ) + "%";
+  const status =
+    trips < 6 || route.Source === route.Destination
+      ? "delayed"
+      : distance > 30
+      ? "active"
+      : "optimal";
+  const efficiency = Math.min(
+    95,
+    Math.max(
+      75,
+      100 -
+        Math.floor(distance / 5) -
+        Math.abs(route["1st Shift Trip"] - route["2nd Shift Trip"])
+    )
+  );
+  const passengers = Math.min(
+    50,
+    Math.max(20, Math.floor(distance / 2 + trips))
+  );
+  const durationMins = Math.floor(distance * 2); // 2 min/km
+  const optimizedMins = Math.floor(durationMins * 0.8); // 20% time saving
+  const startHour = 8 + Math.floor(index / 20); // Spread start times
+  const startTime = `0${startHour}:00`.slice(-5);
+  const endHour = startHour + Math.floor(durationMins / 60);
+  const endMin = durationMins % 60;
+  const optEndHour = startHour + Math.floor(optimizedMins / 60);
+  const optEndMin = optimizedMins % 60;
+
+  return {
+    id: route["Route No."],
+    name: `Route ${route["Route No."]}: ${route.Source} to ${route.Destination}`,
+    buses,
+    stops,
+    avgWait,
+    onTime,
+    status,
+    efficiency,
+    passengers,
+    originalSchedule: {
+      startTime: `${startTime} AM`,
+      endTime: `${endHour}:${endMin < 10 ? "0" : ""}${endMin} ${
+        endHour >= 12 ? "PM" : "AM"
+      }`,
+      duration: `${durationMins}m`,
+      efficiency: efficiency - 10,
+    },
+    optimizedSchedule: {
+      startTime: `${startTime} AM`,
+      endTime: `${optEndHour}:${optEndMin < 10 ? "0" : ""}${optEndMin} ${
+        optEndHour >= 12 ? "PM" : "AM"
+      }`,
+      duration: `${optimizedMins}m`,
+      efficiency,
+    },
+    timeSaved: `-${durationMins - optimizedMins}m`,
+    efficiencyGain: `+${10}%`,
+  };
+});
+
+// Generate buses (one per route)
+export const initialBuses: Bus[] = amtsRoutes.map((route, index) => {
+  const stops = [route.Source, route.Destination];
+  const nextStop = stops[Math.floor(Math.random() * stops.length)];
+  const occupancy = Math.floor(Math.random() * 31) + 10; // 10–40 passengers
+  const status =
+    occupancy > 35
+      ? "overcrowded"
+      : route["1st Shift Trip"] < 6
+      ? "delayed"
+      : "normal";
+
+  return {
+    id: `B-${route["Route No."].padStart(3, "0")}`,
+    x: Math.random() * 800,
+    y: Math.random() * 384,
+    targetX: Math.random() * 800,
+    targetY: Math.random() * 384,
+    occupancy,
+    maxCapacity: 40,
+    status,
+    route: `Route ${route["Route No."]}`,
+    nextStop,
+    speed: 1 + Math.random() * 1.5, // 1–2.5
+  };
+});
+
+// Generate unique stops
 export const routeStops: RouteStop[] = [
-  { id: 'stop1', name: 'Central Station', x: 300, y: 150, routes: ['Route 5', 'Route 3'] },
-  { id: 'stop2', name: 'Mall Plaza', x: 200, y: 300, routes: ['Route 12', 'Route 8'] },
-  { id: 'stop3', name: 'University', x: 500, y: 100, routes: ['Route 8', 'Route 5'] },
-  { id: 'stop4', name: 'Hospital', x: 400, y: 250, routes: ['Route 3', 'Route 12'] },
-  { id: 'stop5', name: 'Airport', x: 100, y: 350, routes: ['Route 5'] },
-  { id: 'stop6', name: 'Stadium', x: 450, y: 200, routes: ['Route 12', 'Route 3'] }
-];
+  ...new Set(amtsRoutes.flatMap((r) => [r.Source, r.Destination])),
+].map((name, index) => ({
+  id: `stop-${index + 1}`,
+  name,
+  x: Math.random() * 800,
+  y: Math.random() * 384,
+  routes: amtsRoutes
+    .filter((r) => r.Source === name || r.Destination === name)
+    .map((r) => `Route ${r["Route No."]}`),
+}));
 
-export const initialAlerts: Alert[] = [
-  {
-    id: '1',
-    type: 'warning',
-    message: 'Route 5 Delayed – Rescheduling Now...',
-    timestamp: Date.now(),
-    route: 'Route 5'
-  }
-];
+// Generate alerts for routes with fewer trips or circular routes
+export const initialAlerts: Alert[] = amtsRoutes
+  .filter((r) => r["1st Shift Trip"] < 6 || r.Source === r.Destination)
+  .slice(0, 5) // Limit to 5 alerts
+  .map((r, index) => ({
+    id: `${index + 1}`,
+    type: "warning",
+    message: `Route ${r["Route No."]} ${
+      r.Source === r.Destination ? "Circular Route" : "Delayed"
+    } – Rescheduling Now...`,
+    timestamp: Date.now() - index * 30000,
+    route: `Route ${r["Route No."]}`,
+  }));
 
-export const scheduleData: ScheduleEntry[] = [
-  { route: 'Route 5', stop: 'Central Station', originalTime: '08:15', optimizedTime: '08:12', improvement: -3 },
-  { route: 'Route 5', stop: 'University', originalTime: '08:25', optimizedTime: '08:20', improvement: -5 },
-  { route: 'Route 12', stop: 'Mall Plaza', originalTime: '08:30', optimizedTime: '08:25', improvement: -5 },
-  { route: 'Route 12', stop: 'Stadium', originalTime: '08:45', optimizedTime: '08:38', improvement: -7 },
-  { route: 'Route 8', stop: 'University', originalTime: '08:20', optimizedTime: '08:22', improvement: 2 },
-  { route: 'Route 3', stop: 'Hospital', originalTime: '08:35', optimizedTime: '08:30', improvement: -5 }
-];
+// Generate schedule entries for key stops
+export const scheduleData: ScheduleEntry[] = amtsRoutes
+  .slice(0, 10)
+  .map((r) => {
+    const stop = r.Destination;
+    const baseTime = 8 * 60 + Math.floor(Math.random() * 60); // Random time between 8:00–8:59
+    const originalMins = baseTime + Math.floor(r["Distance Covered"] * 2);
+    const optimizedMins = Math.floor(originalMins * 0.95);
+    return {
+      route: `Route ${r["Route No."]}`,
+      stop,
+      originalTime: `${Math.floor(originalMins / 60)}:${(originalMins % 60)
+        .toString()
+        .padStart(2, "0")}`,
+      optimizedTime: `${Math.floor(optimizedMins / 60)}:${(optimizedMins % 60)
+        .toString()
+        .padStart(2, "0")}`,
+      improvement: optimizedMins - originalMins,
+    };
+  });
 
+// Retain original chart data (time-based, not route-specific)
 export const initialChartData: ChartData[] = [
-  { time: '08:00', waitTime: 12, optimizedWaitTime: 8, usage: 65, optimizedUsage: 85, predicted: 120, actual: 115 },
-  { time: '08:15', waitTime: 15, optimizedWaitTime: 9, usage: 70, optimizedUsage: 88, predicted: 135, actual: 140 },
-  { time: '08:30', waitTime: 18, optimizedWaitTime: 10, usage: 75, optimizedUsage: 92, predicted: 150, actual: 145 },
-  { time: '08:45', waitTime: 14, optimizedWaitTime: 7, usage: 68, optimizedUsage: 90, predicted: 140, actual: 138 },
-  { time: '09:00', waitTime: 11, optimizedWaitTime: 6, usage: 72, optimizedUsage: 95, predicted: 160, actual: 155 }
+  {
+    time: "08:00",
+    waitTime: 12,
+    optimizedWaitTime: 8,
+    usage: 65,
+    optimizedUsage: 85,
+    predicted: 120,
+    actual: 115,
+  },
+  {
+    time: "08:15",
+    waitTime: 15,
+    optimizedWaitTime: 9,
+    usage: 70,
+    optimizedUsage: 88,
+    predicted: 135,
+    actual: 140,
+  },
+  {
+    time: "08:30",
+    waitTime: 18,
+    optimizedWaitTime: 10,
+    usage: 75,
+    optimizedUsage: 92,
+    predicted: 150,
+    actual: 145,
+  },
+  {
+    time: "08:45",
+    waitTime: 14,
+    optimizedWaitTime: 7,
+    usage: 68,
+    optimizedUsage: 90,
+    predicted: 140,
+    actual: 138,
+  },
+  {
+    time: "09:00",
+    waitTime: 11,
+    optimizedWaitTime: 6,
+    usage: 72,
+    optimizedUsage: 95,
+    predicted: 160,
+    actual: 155,
+  },
 ];
 
-export const routes: Route[] = [
-  {
-    id: 'downtown-express',
-    name: 'Downtown Express',
-    buses: 6,
-    stops: 12,
-    avgWait: '8.5m',
-    onTime: '92%',
-    status: 'optimal',
-    efficiency: 92,
-    passengers: 32,
-    originalSchedule: {
-      startTime: '08:00',
-      endTime: '08:45',
-      duration: '45m',
-      efficiency: 78
-    },
-    optimizedSchedule: {
-      startTime: '08:00',
-      endTime: '08:38',
-      duration: '38m',
-      efficiency: 92
-    },
-    timeSaved: '-7m',
-    efficiencyGain: '+14%'
-  },
-  {
-    id: 'university-loop',
-    name: 'University Loop',
-    buses: 4,
-    stops: 18,
-    avgWait: '12.3m',
-    onTime: '87%',
-    status: 'delayed',
-    efficiency: 87,
-    passengers: 28,
-    originalSchedule: {
-      startTime: '08:15',
-      endTime: '09:00',
-      duration: '45m',
-      efficiency: 75
-    },
-    optimizedSchedule: {
-      startTime: '08:15',
-      endTime: '08:52',
-      duration: '37m',
-      efficiency: 87
-    },
-    timeSaved: '-8m',
-    efficiencyGain: '+12%'
-  },
-  {
-    id: 'airport-shuttle',
-    name: 'Airport Shuttle',
-    buses: 3,
-    stops: 8,
-    avgWait: '15.2m',
-    onTime: '95%',
-    status: 'active',
-    efficiency: 95,
-    passengers: 24,
-    originalSchedule: {
-      startTime: '08:30',
-      endTime: '09:15',
-      duration: '45m',
-      efficiency: 82
-    },
-    optimizedSchedule: {
-      startTime: '08:30',
-      endTime: '09:05',
-      duration: '35m',
-      efficiency: 95
-    },
-    timeSaved: '-10m',
-    efficiencyGain: '+13%'
-  },
-  {
-    id: 'residential-circuit',
-    name: 'Residential Circuit',
-    buses: 8,
-    stops: 24,
-    avgWait: '9.8m',
-    onTime: '89%',
-    status: 'active',
-    efficiency: 89,
-    passengers: 45,
-    originalSchedule: {
-      startTime: '08:45',
-      endTime: '09:30',
-      duration: '45m',
-      efficiency: 76
-    },
-    optimizedSchedule: {
-      startTime: '08:45',
-      endTime: '09:20',
-      duration: '35m',
-      efficiency: 89
-    },
-    timeSaved: '-10m',
-    efficiencyGain: '+13%'
-  }
-];
-
-export const notifications: Notification[] = [
-  {
-    id: '1',
-    type: 'success',
-    message: 'Route optimization completed successfully',
-    timestamp: Date.now() - 30000
-  },
-  {
-    id: '2',
-    type: 'success',
-    message: 'Route optimization completed successfully',
-    timestamp: Date.now() - 60000
-  },
-  {
-    id: '3',
-    type: 'info',
-    message: 'Route optimization completed successfully',
-    timestamp: Date.now() - 90000
-  }
-];
+// Generate notifications for a subset of routes
+export const notifications: Notification[] = amtsRoutes
+  .slice(0, 5)
+  .map((r, index) => ({
+    id: `${index + 1}`,
+    type: index % 2 === 0 ? "success" : "info",
+    message: `Route ${r["Route No."]} optimization completed successfully`,
+    timestamp: Date.now() - (index + 1) * 30000,
+  }));
