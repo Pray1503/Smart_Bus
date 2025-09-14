@@ -1,5 +1,20 @@
 # Smart_Bus
 
+### 📌 Project Description
+
+**Smart Bus Optimization Challenge** is a prototype system built to make urban bus networks in Indian Tier-1 cities more efficient and passenger-friendly. The system:
+- Cleans and processes past data (ticket sales, GPS logs, passenger counts).
+- Simulates real-time bus updates with location and occupancy.
+- Prevents bus bunching and reduces empty trips by dynamic scheduling.
+- Predicts short-term passenger demand using simple ML/time-series methods.
+- Provides a dashboard to compare current vs. optimized schedules, visualize live bus movement, and display alerts for delays.
+
+This project demonstrates how AI + data-driven scheduling can improve reliability, reduce waiting times, and optimize resource use in public transport.
+
+A smart transportation system with frontend and backend components built using Typescript, Python, and modern web tooling.
+
+---
+
 A smart transportation system with frontend and backend components built using Typescript, Python, and modern web tooling.
 
 ---
