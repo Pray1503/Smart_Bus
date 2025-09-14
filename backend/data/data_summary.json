@@ -1,0 +1,16 @@
+{
+  "generation_date": "2025-09-13T13:44:00.501575",
+  "data_period": {
+    "start_date": "2024-01-01T00:00:00",
+    "end_date": "2024-01-08T00:00:00",
+    "duration_days": 7
+  },
+  "statistics": {
+    "total_gps_logs": 16590,
+    "total_ridership_entries": 840,
+    "total_routes": 5,
+    "avg_daily_ridership": 15522.285714285714,
+    "peak_hour_ridership": 249.57619047619048,
+    "off_peak_ridership": 89.27777777777777
+  }
+}

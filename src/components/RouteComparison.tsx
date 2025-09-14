@@ -1,7 +1,14 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Clock, Users, TrendingUp, Play, RotateCcw, SkipForward } from 'lucide-react';
-import { Route } from '../types';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Clock,
+  Users,
+  TrendingUp,
+  Play,
+  RotateCcw,
+  SkipForward,
+} from "lucide-react";
+import { Route } from "../types";
 
 interface RouteComparisonProps {
   route: Route;
@@ -15,14 +22,13 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({ route }) => {
         <button className="text-white font-medium border-b-2 border-emerald-500 pb-2">
           Route Comparison
         </button>
-        <button className="text-gray-400 hover:text-gray-300 pb-2">
+        {/* <button className="text-gray-400 hover:text-gray-300 pb-2">
           Timeline View
         </button>
         <button className="text-gray-400 hover:text-gray-300 pb-2">
           Impact Analysis
-        </button>
+        </button> */}
       </div>
-
       {/* Route Header */}
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-white">{route.name}</h2>
@@ -35,7 +41,6 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({ route }) => {
           </div>
         </div>
       </div>
-
       {/* Comparison Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Original Schedule */}
@@ -57,16 +62,21 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({ route }) => {
               <Clock className="w-5 h-5 text-gray-400" />
               <div>
                 <p className="text-2xl font-mono text-white">
-                  {route.originalSchedule.startTime} - {route.originalSchedule.endTime}
+                  {route.originalSchedule.startTime} -{" "}
+                  {route.originalSchedule.endTime}
                 </p>
-                <p className="text-sm text-gray-400">({route.originalSchedule.duration})</p>
+                <p className="text-sm text-gray-400">
+                  ({route.originalSchedule.duration})
+                </p>
               </div>
             </div>
 
             <div className="flex items-center space-x-3">
               <Users className="w-5 h-5 text-gray-400" />
               <div>
-                <p className="text-lg text-white">{route.passengers} passengers</p>
+                <p className="text-lg text-white">
+                  {route.passengers} passengers
+                </p>
                 <p className="text-sm text-gray-400">Average capacity</p>
               </div>
             </div>
@@ -74,7 +84,9 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({ route }) => {
             <div className="flex items-center space-x-3">
               <TrendingUp className="w-5 h-5 text-gray-400" />
               <div>
-                <p className="text-lg text-white">{route.originalSchedule.efficiency}% efficiency</p>
+                <p className="text-lg text-white">
+                  {route.originalSchedule.efficiency}% efficiency
+                </p>
                 <p className="text-sm text-gray-400">Performance metric</p>
               </div>
             </div>
@@ -89,7 +101,7 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({ route }) => {
           transition={{ delay: 0.2 }}
         >
           <div className="absolute inset-0 bg-emerald-500/5" />
-          
+
           <div className="relative z-10">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold text-white flex items-center">
@@ -103,16 +115,21 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({ route }) => {
                 <Clock className="w-5 h-5 text-emerald-400" />
                 <div>
                   <p className="text-2xl font-mono text-white">
-                    {route.optimizedSchedule.startTime} - {route.optimizedSchedule.endTime}
+                    {route.optimizedSchedule.startTime} -{" "}
+                    {route.optimizedSchedule.endTime}
                   </p>
-                  <p className="text-sm text-emerald-400">({route.optimizedSchedule.duration})</p>
+                  <p className="text-sm text-emerald-400">
+                    ({route.optimizedSchedule.duration})
+                  </p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-3">
                 <Users className="w-5 h-5 text-emerald-400" />
                 <div>
-                  <p className="text-lg text-white">{Math.round(route.passengers * 1.2)} passengers</p>
+                  <p className="text-lg text-white">
+                    {Math.round(route.passengers * 1.2)} passengers
+                  </p>
                   <p className="text-sm text-emerald-400">Improved capacity</p>
                 </div>
               </div>
@@ -120,17 +137,20 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({ route }) => {
               <div className="flex items-center space-x-3">
                 <TrendingUp className="w-5 h-5 text-emerald-400" />
                 <div>
-                  <p className="text-lg text-white">{route.optimizedSchedule.efficiency}% efficiency</p>
-                  <p className="text-sm text-emerald-400">Enhanced performance</p>
+                  <p className="text-lg text-white">
+                    {route.optimizedSchedule.efficiency}% efficiency
+                  </p>
+                  <p className="text-sm text-emerald-400">
+                    Enhanced performance
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </motion.div>
       </div>
-
-      {/* Timeline Controls */}
-      <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+      Timeline Controls
+      {/* <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-white">Time Efficiency</h3>
         </div>
@@ -143,7 +163,7 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({ route }) => {
           >
             <Play className="w-4 h-4" />
           </motion.button>
-          
+
           <motion.button
             className="p-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600 transition-colors"
             whileHover={{ scale: 1.05 }}
@@ -154,7 +174,9 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({ route }) => {
 
           <div className="flex items-center space-x-2">
             <span className="text-sm text-gray-400">0.5x</span>
-            <span className="text-sm text-white bg-emerald-500 px-2 py-1 rounded">1x</span>
+            <span className="text-sm text-white bg-emerald-500 px-2 py-1 rounded">
+              1x
+            </span>
             <span className="text-sm text-gray-400">2x</span>
             <span className="text-sm text-gray-400">4x</span>
             <span className="text-sm text-gray-400">8x</span>
@@ -171,19 +193,18 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({ route }) => {
           <div className="text-sm text-gray-400">00:00</div>
         </div>
 
-        {/* Progress Timeline */}
         <div className="space-y-4">
           <div className="flex items-center justify-between text-sm">
             <span className="text-gray-400">00:00</span>
             <span className="text-gray-400">Timeline</span>
           </div>
-          
+
           <div className="relative">
             <div className="w-full h-2 bg-gray-700 rounded-full">
               <motion.div
                 className="h-full bg-emerald-500 rounded-full"
                 initial={{ width: 0 }}
-                animate={{ width: '0%' }}
+                animate={{ width: "0%" }}
                 transition={{ duration: 2 }}
               />
             </div>
@@ -209,7 +230,7 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({ route }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

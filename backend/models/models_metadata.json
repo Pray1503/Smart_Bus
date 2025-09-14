@@ -1,0 +1,16 @@
+{
+  "500": {
+    "training_date": "2025-09-14T09:42:55.211997",
+    "training_records": 62,
+    "training_time_seconds": 0.275296,
+    "data_start": "2024-01-01T00:00:00",
+    "data_end": "2024-01-03T13:00:00"
+  },
+  "504": {
+    "training_date": "2025-09-14T09:42:55.500991",
+    "training_records": 63,
+    "training_time_seconds": 0.221828,
+    "data_start": "2024-01-05T09:00:00",
+    "data_end": "2024-01-07T23:00:00"
+  }
+}

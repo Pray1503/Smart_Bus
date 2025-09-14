@@ -1,0 +1,30 @@
+{
+  "processing_date": "2025-09-13T13:44:07.267171",
+  "datasets_processed": [
+    "gps_clean",
+    "ridership_clean",
+    "prophet_data",
+    "hourly_aggregation",
+    "daily_aggregation"
+  ],
+  "record_counts": {
+    "gps_clean": 16590,
+    "ridership_clean": 840,
+    "hourly_aggregation": 120,
+    "daily_aggregation": 35
+  },
+  "data_quality_metrics": {
+    "ridership": {
+      "completeness": 100.0,
+      "zero_values_pct": 0.0,
+      "avg_ridership": 129.22182539682538,
+      "std_ridership": 96.87058007145899
+    },
+    "gps": {
+      "completeness": 100.0,
+      "unique_buses": 3206,
+      "unique_routes": 5,
+      "avg_speed": 30.041109101868596
+    }
+  }
+}

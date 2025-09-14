@@ -1,0 +1,6 @@
+route_id,route_name,source,destination,distance_km,fare,stops,total_stops,estimated_travel_time,operational_status
+500,Route 500,Majestic Bus Station,K.R. Market,8.5,15,"[""Majestic"", ""City Railway Station"", ""Chickpet"", ""Avenue Road"", ""K.R. Market""]",5,25,active
+501,Route 501,Silk Board,Electronic City,12.3,20,"[""Silk Board"", ""BTM Layout"", ""Bommanahalli"", ""Hongasandra"", ""Electronic City""]",5,25,active
+502,Route 502,Whitefield,Marathahalli,15.7,25,"[""Whitefield"", ""ITPL"", ""Brookefield"", ""Kundalahalli"", ""Marathahalli""]",5,25,active
+503,Route 503,Koramangala,Jayanagar,9.2,18,"[""Koramangala"", ""5th Block"", ""Wilson Garden"", ""4th Block Jayanagar"", ""Jayanagar""]",5,25,active
+504,Route 504,Indiranagar,MG Road,6.8,12,"[""Indiranagar"", ""100 Feet Road"", ""HAL"", ""Trinity"", ""MG Road""]",5,25,active

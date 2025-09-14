@@ -353,13 +353,6 @@ export const Dashboard: React.FC = () => {
         return <BusMap />; // Remove props since BusMap generates its own data
       case "forecast":
         return <ForecastChart selectedRoute={selectedRoute} routes={routes} />;
-      case "settings":
-        return (
-          <div className="p-8 text-center">
-            <h2 className="text-2xl font-bold text-white mb-4">Settings</h2>
-            <p className="text-gray-400">Settings panel coming soon...</p>
-          </div>
-        );
       default:
         return null;
     }
