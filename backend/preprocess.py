@@ -1209,7 +1209,7 @@ Implements demand prediction using Facebook Prophet with external regressors
 Smart Bus Management System - Data Preprocessing Script
 Cleans and preprocesses the generated bus data for Prophet forecasting
 """
-
+import re
 import pandas as pd
 import numpy as np
 import json
@@ -1500,13 +1500,20 @@ class BusDataPreprocessor:
         if 'prophet_data' in self.processed_data:
             all_routes_data = []
             for route_name, route_df in self.processed_data['prophet_data'].items():
-                route_id = route_name.split('_')[1]
+                # Extract numeric route_id from route_name
+                route_id_str = route_name.split('_')[1]  # e.g., '123 SH'
+                match = re.search(r'\d+', route_id_str)
+                if match:
+                    route_id = float(match.group())
+                else:
+                    route_id = 0.0  # fallback if no number is found
+                
                 route_df_copy = route_df.copy()
-                route_df_copy['route_id'] = int(route_id)
+                route_df_copy['route_id'] = route_id
                 all_routes_data.append(route_df_copy)
             
             master_df = pd.concat(all_routes_data, ignore_index=True)
-            master_df.to_csv(output_dir / 'clean_data.csv', index=False)
+            master_df.to_csv(self.data_dir / 'clean_data.csv', index=False)
             print(f"Saved master clean dataset with {len(master_df)} records")
         
         # Generate processing summary

@@ -16,7 +16,7 @@ import warnings
 import logging
 
 # Suppress Prophet warnings
-warnings.filterWarnings('ignore')
+warnings.filterwarnings('ignore')
 logging.getLogger('prophet').setLevel(logging.WARNING)
 
 # Set up logging

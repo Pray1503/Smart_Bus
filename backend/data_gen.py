@@ -21,43 +21,668 @@ class BangaloreBusDataGenerator:
     
     def __init__(self):
         # Define Bangalore bus routes based on AMTS structure
-        self.bangalore_routes = {
-            500: {
-                'source': 'Majestic Bus Station',
-                'destination': 'K.R. Market',
-                'distance_km': 8.5,
-                'fare': 15,
-                'stops': ['Majestic', 'City Railway Station', 'Chickpet', 'Avenue Road', 'K.R. Market']
-            },
-            501: {
-                'source': 'Silk Board',
-                'destination': 'Electronic City',
-                'distance_km': 12.3,
-                'fare': 20,
-                'stops': ['Silk Board', 'BTM Layout', 'Bommanahalli', 'Hongasandra', 'Electronic City']
-            },
-            502: {
-                'source': 'Whitefield',
-                'destination': 'Marathahalli',
-                'distance_km': 15.7,
-                'fare': 25,
-                'stops': ['Whitefield', 'ITPL', 'Brookefield', 'Kundalahalli', 'Marathahalli']
-            },
-            503: {
-                'source': 'Koramangala',
-                'destination': 'Jayanagar',
-                'distance_km': 9.2,
-                'fare': 18,
-                'stops': ['Koramangala', '5th Block', 'Wilson Garden', '4th Block Jayanagar', 'Jayanagar']
-            },
-            504: {
-                'source': 'Indiranagar',
-                'destination': 'MG Road',
-                'distance_km': 6.8,
-                'fare': 12,
-                'stops': ['Indiranagar', '100 Feet Road', 'HAL', 'Trinity', 'MG Road']
+        self.ahmedabad_routes = {
+                1: {
+                    "source": "Ratan Park",
+                    "destination": "Lal Darwaja",
+                    "distance_km": 9.5,
+                    "fare": 20,
+                    "stops": ["Ratan Park", "Lal Darwaja"],
+                    "shift_trips": {"1st": 13, "2nd": 14}
+                },
+                4: {
+                    "source": "Lal Darwaja",
+                    "destination": "Lal Darwaja",
+                    "distance_km": 22.8,
+                    "fare": 30,
+                    "stops": ["Lal Darwaja", "Lal Darwaja"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                5: {
+                    "source": "Lal Darwaja",
+                    "destination": "Lal Darwaja",
+                    "distance_km": 22.8,
+                    "fare": 30,
+                    "stops": ["Lal Darwaja", "Lal Darwaja"],
+                    "shift_trips": {"1st": 6, "2nd": 7}
+                },
+                14: {
+                    "source": "Lal Darwaja",
+                    "destination": "Chosar Gam",
+                    "distance_km": 18.7,
+                    "fare": 25,
+                    "stops": ["Lal Darwaja", "Chosar Gam"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                15: {
+                    "source": "Vivekanand Nagar",
+                    "destination": "Civil Hospital",
+                    "distance_km": 22.15,
+                    "fare": 30,
+                    "stops": ["Vivekanand Nagar", "Civil Hospital"],
+                    "shift_trips": {"1st": 7, "2nd": 8}
+                },
+                16: {
+                    "source": "Nigam Society",
+                    "destination": "Chiloda Octroi Naka",
+                    "distance_km": 27.8,
+                    "fare": 30,
+                    "stops": ["Nigam Society", "Chiloda Octroi Naka"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                17: {
+                    "source": "Nigam Society",
+                    "destination": "Meghani Nagar",
+                    "distance_km": 16.45,
+                    "fare": 25,
+                    "stops": ["Nigam Society", "Meghani Nagar"],
+                    "shift_trips": {"1st": 8, "2nd": 7}
+                },
+                18: {
+                    "source": "Kalupur",
+                    "destination": "Punit Nagar",
+                    "distance_km": 8.9,
+                    "fare": 20,
+                    "stops": ["Kalupur", "Punit Nagar"],
+                    "shift_trips": {"1st": 14, "2nd": 14}
+                },
+                22: {
+                    "source": "Tragad Gam",
+                    "destination": "Lambha Gam",
+                    "distance_km": 32.05,
+                    "fare": 30,
+                    "stops": ["Tragad Gam", "Lambha Gam"],
+                    "shift_trips": {"1st": 5, "2nd": 5}
+                },
+                23: {
+                    "source": "Isanpur",
+                    "destination": "Jivandeep Circular",
+                    "distance_km": 22.9,
+                    "fare": 30,
+                    "stops": ["Isanpur", "Jivandeep Circular"],
+                    "shift_trips": {"1st": 7, "2nd": 7}
+                },
+                28: {
+                    "source": "Meghani Nagar",
+                    "destination": "Lambha Gam",
+                    "distance_km": 19.85,
+                    "fare": 25,
+                    "stops": ["Meghani Nagar", "Lambha Gam"],
+                    "shift_trips": {"1st": 7, "2nd": 7}
+                },
+                31: {
+                    "source": "Sarkhej Gam",
+                    "destination": "Meghaninagar",
+                    "distance_km": 19.85,
+                    "fare": 25,
+                    "stops": ["Sarkhej Gam", "Meghaninagar"],
+                    "shift_trips": {"1st": 7, "2nd": 7}
+                },
+                32: {
+                    "source": "Butbhavani Mand",
+                    "destination": "Shahiyadri Bung",
+                    "distance_km": 18.6,
+                    "fare": 25,
+                    "stops": ["Butbhavani Mand", "Shahiyadri Bung"],
+                    "shift_trips": {"1st": 7, "2nd": 8}
+                },
+                33: {
+                    "source": "Narayan Nagar",
+                    "destination": "Manmohan Park",
+                    "distance_km": 19.65,
+                    "fare": 25,
+                    "stops": ["Narayan Nagar", "Manmohan Park"],
+                    "shift_trips": {"1st": 7, "2nd": 7}
+                },
+                34: {
+                    "source": "Butbhavani Mand",
+                    "destination": "Kalapi Nagar",
+                    "distance_km": 17.55,
+                    "fare": 25,
+                    "stops": ["Butbhavani Mand", "Kalapi Nagar"],
+                    "shift_trips": {"1st": 10, "2nd": 8}
+                },
+                35: {
+                    "source": "Lal Darwaja",
+                    "destination": "Matoda Patia",
+                    "distance_km": 25.95,
+                    "fare": 30,
+                    "stops": ["Lal Darwaja", "Matoda Patia"],
+                    "shift_trips": {"1st": 5, "2nd": 6}
+                },
+                36: {
+                    "source": "Sarangpur",
+                    "destination": "Sarkhej Gam",
+                    "distance_km": 14.0,
+                    "fare": 25,
+                    "stops": ["Sarangpur", "Sarkhej Gam"],
+                    "shift_trips": {"1st": 8, "2nd": 8}
+                },
+                37: {
+                    "source": "Vasna",
+                    "destination": "Tejendra Nagar",
+                    "distance_km": 17.1,
+                    "fare": 25,
+                    "stops": ["Vasna", "Tejendra Nagar"],
+                    "shift_trips": {"1st": 7, "2nd": 7}
+                },
+                38: {
+                    "source": "Juhapura",
+                    "destination": "Meghani Nagar",
+                    "distance_km": 16.65,
+                    "fare": 25,
+                    "stops": ["Juhapura", "Meghani Nagar"],
+                    "shift_trips": {"1st": 7, "2nd": 7}
+                },
+                40: {
+                    "source": "Vasna",
+                    "destination": "Lapkaman",
+                    "distance_km": 21.95,
+                    "fare": 30,
+                    "stops": ["Vasna", "Lapkaman"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                42: {
+                    "source": "Ghodasar",
+                    "destination": "Judges Bunglows",
+                    "distance_km": 17.65,
+                    "fare": 25,
+                    "stops": ["Ghodasar", "Judges Bunglows"],
+                    "shift_trips": {"1st": 7, "2nd": 6}
+                },
+                43: {
+                    "source": "Lal Darwaja",
+                    "destination": "Judges Bunglow",
+                    "distance_km": 9.4,
+                    "fare": 20,
+                    "stops": ["Lal Darwaja", "Judges Bunglow"],
+                    "shift_trips": {"1st": 14, "2nd": 12}
+                },
+                45: {
+                    "source": "Lal Darwaja",
+                    "destination": "Jodhpur Gam",
+                    "distance_km": 8.4,
+                    "fare": 20,
+                    "stops": ["Lal Darwaja", "Jodhpur Gam"],
+                    "shift_trips": {"1st": 15, "2nd": 14}
+                },
+                46: {
+                    "source": "Kalupur",
+                    "destination": "Kalupur",
+                    "distance_km": 18.2,
+                    "fare": 25,
+                    "stops": ["Kalupur", "Kalupur"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                47: {
+                    "source": "Kalupur",
+                    "destination": "Kalupur",
+                    "distance_km": 18.2,
+                    "fare": 25,
+                    "stops": ["Kalupur", "Kalupur"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                48: {
+                    "source": "Kalupur",
+                    "destination": "Prhalad Nagar",
+                    "distance_km": 14.25,
+                    "fare": 25,
+                    "stops": ["Kalupur", "Prhalad Nagar"],
+                    "shift_trips": {"1st": 10, "2nd": 10}
+                },
+                49: {
+                    "source": "Adinath Nagar",
+                    "destination": "Manipur Vad",
+                    "distance_km": 29.15,
+                    "fare": 30,
+                    "stops": ["Adinath Nagar", "Manipur Vad"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                50: {
+                    "source": "Ghuma Gam",
+                    "destination": "Meghani Nagar",
+                    "distance_km": 25.7,
+                    "fare": 30,
+                    "stops": ["Ghuma Gam", "Meghani Nagar"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                52: {
+                    "source": "Punit Nagar",
+                    "destination": "Thaltej",
+                    "distance_km": 21.6,
+                    "fare": 30,
+                    "stops": ["Punit Nagar", "Thaltej"],
+                    "shift_trips": {"1st": 7, "2nd": 6}
+                },
+                54: {
+                    "source": "Vatva Rly Cross",
+                    "destination": "Vaishnodevi Man",
+                    "distance_km": 34.4,
+                    "fare": 30,
+                    "stops": ["Vatva Rly Cross", "Vaishnodevi Man"],
+                    "shift_trips": {"1st": 5, "2nd": 5}
+                },
+                56: {
+                    "source": "Sitaram Bapa Chowk",
+                    "destination": "Judges Bunglows",
+                    "distance_km": 24.95,
+                    "fare": 30,
+                    "stops": ["Sitaram Bapa Chowk", "Judges Bunglows"],
+                    "shift_trips": {"1st": 5, "2nd": 6}
+                },
+                58: {
+                    "source": "Thaltej Gam",
+                    "destination": "Kush Society",
+                    "distance_km": 30.15,
+                    "fare": 30,
+                    "stops": ["Thaltej Gam", "Kush Society"],
+                    "shift_trips": {"1st": 5, "2nd": 5}
+                },
+                60: {
+                    "source": "Maninagar",
+                    "destination": "Judges Bunglows",
+                    "distance_km": 18.65,
+                    "fare": 25,
+                    "stops": ["Maninagar", "Judges Bunglows"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                61: {
+                    "source": "Maninagar",
+                    "destination": "Gujarat High Court",
+                    "distance_km": 19.6,
+                    "fare": 25,
+                    "stops": ["Maninagar", "Gujarat High Court"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                63: {
+                    "source": "Maninagar",
+                    "destination": "Gujarat High Court",
+                    "distance_km": 19.45,
+                    "fare": 25,
+                    "stops": ["Maninagar", "Gujarat High Court"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                64: {
+                    "source": "Lal Darwaja",
+                    "destination": "Gujarat High Court",
+                    "distance_km": 11.35,
+                    "fare": 20,
+                    "stops": ["Lal Darwaja", "Gujarat High Court"],
+                    "shift_trips": {"1st": 10, "2nd": 10}
+                },
+                65: {
+                    "source": "Lal Darwaja",
+                    "destination": "Sola Bhagwat Vidhyapith",
+                    "distance_km": 13.55,
+                    "fare": 20,
+                    "stops": ["Lal Darwaja", "Sola Bhagwat Vidhyapith"],
+                    "shift_trips": {"1st": 8, "2nd": 8}
+                },
+                66: {
+                    "source": "Kalupur Terminu",
+                    "destination": "Shilaj Gam",
+                    "distance_km": 16.5,
+                    "fare": 25,
+                    "stops": ["Kalupur Terminu", "Shilaj Gam"],
+                    "shift_trips": {"1st": 7, "2nd": 7}
+                },
+                67: {
+                    "source": "Kalupur",
+                    "destination": "Satadhar Society",
+                    "distance_km": 11.1,
+                    "fare": 20,
+                    "stops": ["Kalupur", "Satadhar Society"],
+                    "shift_trips": {"1st": 10, "2nd": 10}
+                },
+                68: {
+                    "source": "Kalupur",
+                    "destination": "Sattadhar Society",
+                    "distance_km": 17.2,
+                    "fare": 25,
+                    "stops": ["Kalupur", "Sattadhar Society"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                69: {
+                    "source": "Kalupur",
+                    "destination": "Chanakyapuri",
+                    "distance_km": 10.35,
+                    "fare": 20,
+                    "stops": ["Kalupur", "Chanakyapuri"],
+                    "shift_trips": {"1st": 10, "2nd": 10}
+                },
+                70: {
+                    "source": "Vagheshwari Soc",
+                    "destination": "Naroda Terminus",
+                    "distance_km": 20.05,
+                    "fare": 30,
+                    "stops": ["Vagheshwari Soc", "Naroda Terminus"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                72: {
+                    "source": "Maninagar",
+                    "destination": "Nava Vadaj",
+                    "distance_km": 18.2,
+                    "fare": 25,
+                    "stops": ["Maninagar", "Nava Vadaj"],
+                    "shift_trips": {"1st": 10, "2nd": 10}
+                },
+                74: {
+                    "source": "Nava Ranip",
+                    "destination": "Nigam Society",
+                    "distance_km": 21.55,
+                    "fare": 30,
+                    "stops": ["Nava Ranip", "Nigam Society"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                75: {
+                    "source": "Maninagar",
+                    "destination": "Chandkheda",
+                    "distance_km": 21.2,
+                    "fare": 30,
+                    "stops": ["Maninagar", "Chandkheda"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                76: {
+                    "source": "Vatva Ind.Towns",
+                    "destination": "Gujarat High Court",
+                    "distance_km": 25.7,
+                    "fare": 30,
+                    "stops": ["Vatva Ind.Towns", "Gujarat High Court"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                77: {
+                    "source": "Vadaj Terminus",
+                    "destination": "Hatkeshwar",
+                    "distance_km": 12.35,
+                    "fare": 20,
+                    "stops": ["Vadaj Terminus", "Hatkeshwar"],
+                    "shift_trips": {"1st": 9, "2nd": 9}
+                },
+                79: {
+                    "source": "Thakkarbapa Nagar",
+                    "destination": "Chenpur Gam",
+                    "distance_km": 19.0,
+                    "fare": 25,
+                    "stops": ["Thakkarbapa Nagar", "Chenpur Gam"],
+                    "shift_trips": {"1st": 7, "2nd": 7}
+                },
+                82: {
+                    "source": "Lal Darwaja",
+                    "destination": "Nirnay Nagar",
+                    "distance_km": 10.45,
+                    "fare": 20,
+                    "stops": ["Lal Darwaja", "Nirnay Nagar"],
+                    "shift_trips": {"1st": 11, "2nd": 11}
+                },
+                83: {
+                    "source": "Lal Darwaja",
+                    "destination": "Sabarmati D Cab",
+                    "distance_km": 14.1,
+                    "fare": 25,
+                    "stops": ["Lal Darwaja", "Sabarmati D Cab"],
+                    "shift_trips": {"1st": 8, "2nd": 8}
+                },
+                84: {
+                    "source": "Mani Nagar",
+                    "destination": "Chandkheda Gam",
+                    "distance_km": 23.6,
+                    "fare": 30,
+                    "stops": ["Mani Nagar", "Chandkheda Gam"],
+                    "shift_trips": {"1st": 5, "2nd": 6}
+                },
+                85: {
+                    "source": "Lal Darwaja",
+                    "destination": "Chandkheda Gam",
+                    "distance_km": 12.85,
+                    "fare": 20,
+                    "stops": ["Lal Darwaja", "Chandkheda Gam"],
+                    "shift_trips": {"1st": 8, "2nd": 8}
+                },
+                87: {
+                    "source": "Maninagar",
+                    "destination": "Chandkheda Gam",
+                    "distance_km": 24.95,
+                    "fare": 30,
+                    "stops": ["Maninagar", "Chandkheda Gam"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                88: {
+                    "source": "Ranip",
+                    "destination": "Nikol Gam",
+                    "distance_km": 16.45,
+                    "fare": 25,
+                    "stops": ["Ranip", "Nikol Gam"],
+                    "shift_trips": {"1st": 8, "2nd": 8}
+                },
+                90: {
+                    "source": "Tragad Gam",
+                    "destination": "Meghaninagar",
+                    "distance_km": 21.15,
+                    "fare": 30,
+                    "stops": ["Tragad Gam", "Meghaninagar"],
+                    "shift_trips": {"1st": 7, "2nd": 7}
+                },
+                96: {
+                    "source": "Vatva Rly Cross",
+                    "destination": "Circuit House",
+                    "distance_km": 22.65,
+                    "fare": 30,
+                    "stops": ["Vatva Rly Cross", "Circuit House"],
+                    "shift_trips": {"1st": 7, "2nd": 7}
+                },
+                101: {
+                    "source": "Lal Darwaja",
+                    "destination": "Sardar Nagar",
+                    "distance_km": 9.45,
+                    "fare": 20,
+                    "stops": ["Lal Darwaja", "Sardar Nagar"],
+                    "shift_trips": {"1st": 14, "2nd": 14}
+                },
+                102: {
+                    "source": "Lal Darwaja",
+                    "destination": "New Airport",
+                    "distance_km": 10.8,
+                    "fare": 20,
+                    "stops": ["Lal Darwaja", "New Airport"],
+                    "shift_trips": {"1st": 12, "2nd": 12}
+                },
+                105: {
+                    "source": "Lal Darwaja",
+                    "destination": "Naroda Ind East",
+                    "distance_km": 16.35,
+                    "fare": 25,
+                    "stops": ["Lal Darwaja", "Naroda Ind East"],
+                    "shift_trips": {"1st": 8, "2nd": 8}
+                },
+                112: {
+                    "source": "Lal Darwaja",
+                    "destination": "Kubernagar",
+                    "distance_km": 11.05,
+                    "fare": 20,
+                    "stops": ["Lal Darwaja", "Kubernagar"],
+                    "shift_trips": {"1st": 10, "2nd": 10}
+                },
+                116: {
+                    "source": "Civil Hospital",
+                    "destination": "Danilimda Gam",
+                    "distance_km": 9.5,
+                    "fare": 20,
+                    "stops": ["Civil Hospital", "Danilimda Gam"],
+                    "shift_trips": {"1st": 10, "2nd": 10}
+                },
+                117: {
+                    "source": "Suedge Farm App",
+                    "destination": "Kalapi Nagar",
+                    "distance_km": 12.85,
+                    "fare": 20,
+                    "stops": ["Suedge Farm App", "Kalapi Nagar"],
+                    "shift_trips": {"1st": 10, "2nd": 10}
+                },
+                122: {
+                    "source": "Lal Darwaja",
+                    "destination": "Ambawadi Police",
+                    "distance_km": 15.25,
+                    "fare": 25,
+                    "stops": ["Lal Darwaja", "Ambawadi Police"],
+                    "shift_trips": {"1st": 8, "2nd": 8}
+                },
+                "123 SH": {
+                    "source": "Lal Darwaja",
+                    "destination": "Krushna Nagar",
+                    "distance_km": 10.35,
+                    "fare": 20,
+                    "stops": ["Lal Darwaja", "Krushna Nagar"],
+                    "shift_trips": {"1st": 10, "2nd": 10}
+                },
+                125: {
+                    "source": "Lal Darwaja",
+                    "destination": "Vahelal Gam",
+                    "distance_km": 27.45,
+                    "fare": 30,
+                    "stops": ["Lal Darwaja", "Vahelal Gam"],
+                    "shift_trips": {"1st": 8, "2nd": 7}
+                },
+                126: {
+                    "source": "Sarangpur",
+                    "destination": "Sardarnagar",
+                    "distance_km": 14.4,
+                    "fare": 25,
+                    "stops": ["Sarangpur", "Sardarnagar"],
+                    "shift_trips": {"1st": 9, "2nd": 9}
+                },
+                127: {
+                    "source": "Sarangpur",
+                    "destination": "Sukan Bunglow",
+                    "distance_km": 12.4,
+                    "fare": 20,
+                    "stops": ["Sarangpur", "Sukan Bunglow"],
+                    "shift_trips": {"1st": 10, "2nd": 10}
+                },
+                128: {
+                    "source": "Mani Nagar",
+                    "destination": "Naroda Ind Town",
+                    "distance_km": 17.25,
+                    "fare": 25,
+                    "stops": ["Mani Nagar", "Naroda Ind Town"],
+                    "shift_trips": {"1st": 7, "2nd": 7}
+                },
+                129: {
+                    "source": "Haridarshan",
+                    "destination": "Vasna",
+                    "distance_km": 23.35,
+                    "fare": 30,
+                    "stops": ["Haridarshan", "Vasna"],
+                    "shift_trips": {"1st": 7, "2nd": 6}
+                },
+                130: {
+                    "source": "Naroda Terminus",
+                    "destination": "Indira Nagar 2",
+                    "distance_km": 24.35,
+                    "fare": 30,
+                    "stops": ["Naroda Terminus", "Indira Nagar 2"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                134: {
+                    "source": "Lal Darwaja",
+                    "destination": "Thakkarbapanagar",
+                    "distance_km": 10.75,
+                    "fare": 20,
+                    "stops": ["Lal Darwaja", "Thakkarbapanagar"],
+                    "shift_trips": {"1st": 10, "2nd": 10}
+                },
+                135: {
+                    "source": "Lal Darwaja",
+                    "destination": "New India Colony",
+                    "distance_km": 14.55,
+                    "fare": 25,
+                    "stops": ["Lal Darwaja", "New India Colony"],
+                    "shift_trips": {"1st": 8, "2nd": 8}
+                },
+                136: {
+                    "source": "New India Colon",
+                    "destination": "Sattadhar Society",
+                    "distance_km": 27.0,
+                    "fare": 30,
+                    "stops": ["New India Colon", "Sattadhar Society"],
+                    "shift_trips": {"1st": 6, "2nd": 6}
+                },
+                138: {
+                    "source": "Bapunagar",
+                    "destination": "Ghuma Gam",
+                    "distance_km": 23.7,
+                    "fare": 30,
+                    "stops": ["Bapunagar", "Ghuma Gam"],
+                    "shift_trips": {"1st": 6, "2nd": 5}
+                },
+                141: {
+                    "source": "Lal Darwaja",
+                    "destination": "Rakhial Char Rasta",
+                    "distance_km": 7.95,
+                    "fare": 15,
+                    "stops": ["Lal Darwaja", "Rakhial Char Rasta"],
+                    "shift_trips": {"1st": 14, "2nd": 14}
+                },
+                142: {
+                    "source": "Vastral Gam",
+                    "destination": "Gujarat University",
+                    "distance_km": 19.05,
+                    "fare": 25,
+                    "stops": ["Vastral Gam", "Gujarat University"],
+                    "shift_trips": {"1st": 8, "2nd": 7}
+                },
+                143: {
+                    "source": "Lal Darwaja",
+                    "destination": "Bhuvaldi Gam",
+                    "distance_km": 16.25,
+                    "fare": 25,
+                    "stops": ["Lal Darwaja", "Bhuvaldi Gam"],
+                    "shift_trips": {"1st": 8, "2nd": 8}
+                },
+                144: {
+                    "source": "Arbuda Nagar",
+                    "destination": "Gujarat University",
+                    "distance_km": 15.95,
+                    "fare": 25,
+                    "stops": ["Arbuda Nagar", "Gujarat University"],
+                    "shift_trips": {"1st": 8, "2nd": 8}
+                },
+                145: {
+                    "source": "Arbudanagar",
+                    "destination": "Civil Hospital",
+                    "distance_km": 10.2,
+                    "fare": 20,
+                    "stops": ["Arbudanagar", "Civil Hospital"],
+                    "shift_trips": {"1st": 13, "2nd": 12}
+                },
+                147: {
+                    "source": "Surbhi Society",
+                    "destination": "Vagheshwari Society",
+                    "distance_km": 18.85,
+                    "fare": 25,
+                    "stops": ["Surbhi Society", "Vagheshwari Society"],
+                    "shift_trips": {"1st": 8, "2nd": 8}
+                },
+                148: {
+                    "source": "Sarangpur",
+                    "destination": "Kathwada Gam",
+                    "distance_km": 13.85,
+                    "fare": 20,
+                    "stops": ["Sarangpur", "Kathwada Gam"],
+                    "shift_trips": {"1st": 8, "2nd": 8}
+                },
+                150: {
+                    "source": "Sarkhej Gam",
+                    "destination": "Chinubhai Nagar",
+                    "distance_km": 24.05,
+                    "fare": 30,
+                    "stops": ["Sarkhej Gam", "Chinubhai Nagar"],
+                    "shift_trips": {"1st": 5, "2nd": 5}
+                }
+
+
+
             }
-        }
+
         
         # Bangalore coordinates (approximate)
         self.city_center = {'lat': 12.9716, 'lng': 77.5946}
@@ -66,13 +691,36 @@ class BangaloreBusDataGenerator:
         self.start_date = datetime(2024, 1, 1)
         self.end_date = datetime(2024, 1, 8)  # 1 week of data
         
+    # def generate_gps_coordinates(self, route_id, stop_index, total_stops):
+    #     """Generate realistic GPS coordinates for bus stops"""
+    #     base_lat = self.city_center['lat']
+    #     base_lng = self.city_center['lng']
+        
+    #     # Create variation based on route and stop
+    #     route_offset = float(route_id) * 0.01
+    #     stop_offset = (stop_index / total_stops) * 0.02
+        
+    #     # Add some randomness for realistic coordinates
+    #     lat_variation = np.random.normal(0, 0.005)
+    #     lng_variation = np.random.normal(0, 0.005)
+        
+    #     lat = base_lat + route_offset + stop_offset + lat_variation
+    #     lng = base_lng + route_offset + stop_offset + lng_variation
+        
+    #     return round(lat, 6), round(lng, 6)
     def generate_gps_coordinates(self, route_id, stop_index, total_stops):
         """Generate realistic GPS coordinates for bus stops"""
         base_lat = self.city_center['lat']
         base_lng = self.city_center['lng']
         
+        # Ensure route_id is numeric
+        try:
+            route_num = float(route_id)
+        except ValueError:
+            route_num = 0  # fallback if route_id is not a number
+        
         # Create variation based on route and stop
-        route_offset = (route_id - 500) * 0.01
+        route_offset = route_num * 0.01
         stop_offset = (stop_index / total_stops) * 0.02
         
         # Add some randomness for realistic coordinates
@@ -83,6 +731,7 @@ class BangaloreBusDataGenerator:
         lng = base_lng + route_offset + stop_offset + lng_variation
         
         return round(lat, 6), round(lng, 6)
+
     
     def generate_ridership_pattern(self, hour, day_of_week, weather_factor=1.0):
         """Generate realistic ridership patterns based on time and conditions"""
@@ -139,7 +788,7 @@ class BangaloreBusDataGenerator:
         current_time = self.start_date
         
         while current_time < self.end_date:
-            for route_id, route_info in self.bangalore_routes.items():
+            for route_id, route_info in self.ahmedabad_routes.items():
                 stops = route_info['stops']
                 
                 # Generate multiple bus trips per hour for each route
@@ -183,7 +832,7 @@ class BangaloreBusDataGenerator:
         while current_time < self.end_date:
             weather_factor = self.generate_weather_factor(current_time.date())
             
-            for route_id, route_info in self.bangalore_routes.items():
+            for route_id, route_info in self.ahmedabad_routes.items():
                 # Generate ridership for each hour
                 base_ridership = self.generate_ridership_pattern(
                     current_time.hour,
@@ -219,7 +868,7 @@ class BangaloreBusDataGenerator:
         """Generate route master data"""
         route_data = []
         
-        for route_id, route_info in self.bangalore_routes.items():
+        for route_id, route_info in self.ahmedabad_routes.items():
             route_data.append({
                 'route_id': route_id,
                 'route_name': f"Route {route_id}",

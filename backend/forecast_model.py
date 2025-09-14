@@ -3405,13 +3405,53 @@ class BusRidershipForecaster:
     
     def create_prophet_model(self, route_id):
         """Create and configure Prophet model for specific route"""
-        route_params = {
-            1: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 15.0, 'daily_seasonality': True},
-            501: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 20.0, 'daily_seasonality': True},
-            502: {'changepoint_prior_scale': 0.08, 'seasonality_prior_scale': 25.0, 'daily_seasonality': True},
-            503: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'daily_seasonality': False},
-            504: {'changepoint_prior_scale': 0.07, 'seasonality_prior_scale': 18.0, 'daily_seasonality': True}
-        }
+        # route_params = {
+        #     1: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 15.0, 'daily_seasonality': True},
+        #     501: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 20.0, 'daily_seasonality': True},
+        #     502: {'changepoint_prior_scale': 0.08, 'seasonality_prior_scale': 25.0, 'daily_seasonality': True},
+        #     503: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'daily_seasonality': False},
+        #     504: {'changepoint_prior_scale': 0.07, 'seasonality_prior_scale': 18.0, 'daily_seasonality': True}
+        # }
+        # Extract route numbers from busRoutes
+        bus_routes = [
+            {"Route No.": "1"}, {"Route No.": "4"}, {"Route No.": "5"}, {"Route No.": "14"}, 
+            {"Route No.": "15"}, {"Route No.": "16"}, {"Route No.": "17"}, {"Route No.": "18"},
+            {"Route No.": "22"}, {"Route No.": "23"}, {"Route No.": "28"}, {"Route No.": "31"},
+            {"Route No.": "32"}, {"Route No.": "33"}, {"Route No.": "34"}, {"Route No.": "35"},
+            {"Route No.": "36"}, {"Route No.": "37"}, {"Route No.": "38"}, {"Route No.": "40"},
+            {"Route No.": "42"}, {"Route No.": "43"}, {"Route No.": "45"}, {"Route No.": "46"},
+            {"Route No.": "47"}, {"Route No.": "48"}, {"Route No.": "49"}, {"Route No.": "50"},
+            {"Route No.": "52"}, {"Route No.": "54"}, {"Route No.": "56"}, {"Route No.": "58"},
+            {"Route No.": "60"}, {"Route No.": "61"}, {"Route No.": "63"}, {"Route No.": "64"},
+            {"Route No.": "65"}, {"Route No.": "66"}, {"Route No.": "67"}, {"Route No.": "68"},
+            {"Route No.": "69"}, {"Route No.": "70"}, {"Route No.": "72"}, {"Route No.": "74"},
+            {"Route No.": "75"}, {"Route No.": "76"}, {"Route No.": "77"}, {"Route No.": "79"},
+            {"Route No.": "82"}, {"Route No.": "83"}, {"Route No.": "84"}, {"Route No.": "85"},
+            {"Route No.": "87"}, {"Route No.": "88"}, {"Route No.": "90"}, {"Route No.": "96"},
+            {"Route No.": "101"}, {"Route No.": "102"}, {"Route No.": "105"}, {"Route No.": "112"},
+            {"Route No.": "116"}, {"Route No.": "117"}, {"Route No.": "122"}, {"Route No.": "123 SH"},
+            {"Route No.": "125"}, {"Route No.": "126"}, {"Route No.": "127"}, {"Route No.": "128"},
+            {"Route No.": "129"}, {"Route No.": "130"}, {"Route No.": "134"}, {"Route No.": "135"},
+            {"Route No.": "136"}, {"Route No.": "138"}, {"Route No.": "141"}, {"Route No.": "142"},
+            {"Route No.": "143"}, {"Route No.": "144"}, {"Route No.": "145"}, {"Route No.": "147"},
+            {"Route No.": "148"}, {"Route No.": "150"}, {"Route No.": "152"}, {"Route No.": "153"},
+            {"Route No.": "160"}, {"Route No.": "200"}, {"Route No.": "201"}, {"Route No.": "202"},
+            {"Route No.": "203"}, {"Route No.": "300"}, {"Route No.": "301"}, {"Route No.": "400"},
+            {"Route No.": "401"}, {"Route No.": "500"}, {"Route No.": "501"}, {"Route No.": "800"},
+            {"Route No.": "900"}
+        ]
+        route_params = {}
+        for route in bus_routes:
+            route_no = route["Route No."].replace(" SH", "")  # Remove " SH" if present
+            route_params[int(route_no)] = {
+                "changepoint_prior_scale": 0.05,
+                "seasonality_prior_scale": 15.0,
+                "daily_seasonality": True
+            }
+
+        # Example output
+        print(route_params)
+
         
         params = route_params.get(int(route_id), {
             'changepoint_prior_scale': 0.05,
