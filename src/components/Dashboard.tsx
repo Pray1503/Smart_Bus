@@ -287,7 +287,7 @@ import { Notification, ChartData, Bus, RouteStop } from "../types";
 
 export const Dashboard: React.FC = () => {
   const [selectedRoute, setSelectedRoute] = useState<string | null>("1");
-  const [activeTab, setActiveTab] = useState("map");
+  const [activeTab, setActiveTab] = useState("overview");
   const [searchTerm, setSearchTerm] = useState("");
   const [notifications, setNotifications] =
     useState<Notification[]>(initialNotifications);
