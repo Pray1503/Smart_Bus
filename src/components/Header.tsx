@@ -1,6 +1,13 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Bus, Clock, TrendingUp, AlertTriangle, Settings, Bell } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Bus,
+  Clock,
+  TrendingUp,
+  AlertTriangle,
+  Settings,
+  Bell,
+} from "lucide-react";
 
 interface HeaderProps {
   stats: {
@@ -22,7 +29,9 @@ export const Header: React.FC<HeaderProps> = ({ stats, notificationCount }) => {
             <Bus className="w-5 h-5 text-emerald-400" />
             <div>
               <p className="text-sm text-gray-400">Active Buses</p>
-              <p className="text-xl font-bold text-white">{stats.activeBuses}</p>
+              <p className="text-xl font-bold text-white">
+                {stats.activeBuses}
+              </p>
             </div>
           </div>
 
@@ -30,7 +39,9 @@ export const Header: React.FC<HeaderProps> = ({ stats, notificationCount }) => {
             <Clock className="w-5 h-5 text-blue-400" />
             <div>
               <p className="text-sm text-gray-400">Avg Wait Time</p>
-              <p className="text-xl font-bold text-white">{stats.avgWaitTime}m</p>
+              <p className="text-xl font-bold text-white">
+                {stats.avgWaitTime}m
+              </p>
             </div>
           </div>
 
@@ -38,7 +49,9 @@ export const Header: React.FC<HeaderProps> = ({ stats, notificationCount }) => {
             <TrendingUp className="w-5 h-5 text-emerald-400" />
             <div>
               <p className="text-sm text-gray-400">On-Time %</p>
-              <p className="text-xl font-bold text-white">{stats.onTimePercentage}%</p>
+              <p className="text-xl font-bold text-white">
+                {stats.onTimePercentage}%
+              </p>
             </div>
           </div>
 
@@ -64,14 +77,6 @@ export const Header: React.FC<HeaderProps> = ({ stats, notificationCount }) => {
                 {notificationCount}
               </span>
             )}
-          </motion.button>
-
-          <motion.button
-            className="p-2 text-gray-400 hover:text-white transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Settings className="w-5 h-5" />
           </motion.button>
 
           <div className="w-8 h-8 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-full" />

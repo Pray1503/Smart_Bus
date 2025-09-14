@@ -277,7 +277,7 @@ import {
   initialBuses,
   routeStops,
 } from "../data/mockData";
-import { Notification, ChartData, Bus, RouteStop } from "../types";
+import { Notification, ChartData, Bus, Route } from "../types";
 
 // Remove unused BusMapProps interface since BusMap doesn't use it currently
 // interface BusMapProps {
